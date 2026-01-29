@@ -4,8 +4,8 @@ body {
   background: linear-gradient(
     to bottom,
     #ffffff 0%,
-    #f4f0ff 25%,
-    #5b2cff 55%,
+    #f4f0ff 33%,
+    #5b2cff 66%,
     #050008 100%
   );
   color: #e6e6e6;
@@ -16,7 +16,12 @@ header {
   display: flex;
   justify-content: space-between;
   padding: 20px;
-  background: #f4f0ff;
+ background: linear-gradient(
+    to bottom,
+    #ffffff 0%,
+    #f4f0ff 75%,
+  );
+  color: #e6e6e6;
 }
 
 nav a {
