@@ -1,6 +1,7 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
+  min-height: 100vh;
   background: linear-gradient(
     to bottom,
     #ffffff 0%,
@@ -8,28 +9,28 @@ body {
     #5b2cff 66%,
     #050008 100%
   );
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   color: #e6e6e6;
 }
 
-
+/* HEADER */
 header {
   display: flex;
   justify-content: space-between;
   padding: 20px;
- background: linear-gradient(
-    to bottom,
-    #ffffff 0%,
-    #f4f0ff 75%,
-  );
-  color: #e6e6e6;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
 }
 
+/* NAV */
 nav a {
   color: #e6e6e6;
   margin-left: 15px;
   text-decoration: none;
 }
 
+/* FOOTER */
 footer {
   text-align: center;
   padding: 20px;
