@@ -5,10 +5,11 @@ body {
   background: linear-gradient(
     to bottom,
     #ffffff 0%,
-    #ffffff 20%,
-    #f4f0ff 40%,
-    #8a6bff 65%,
-    #3a1fb8 80%,
+    #ffffff 8%,
+    #f1edff 15%,
+    #7b5cff 35%,
+    #4a2ad6 55%,
+    #1b0f4d 75%,
     #050008 100%
   );
   background-repeat: no-repeat;
