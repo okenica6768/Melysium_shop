@@ -121,5 +121,10 @@ button.add-to-cart:hover {
   background: rgba(40, 40, 40, 0.9);
 }
 
-
+#logo,
+.melysium,
+header h1 {
+  font-family: 'KunstlerScript', cursive;
+  font-weight: normal;
+}
 
