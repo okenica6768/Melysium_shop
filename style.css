@@ -73,7 +73,7 @@ footer {
   color: #fff;
   border: 1px solid #444;
   cursor: pointer;
-  border-radius: 20px;
+  border-radius: 10px;
   transition: background 0.2s ease, transform 0.1s ease;
 }
 
