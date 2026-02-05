@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'KunstlerScript';
+  src: url('./KUNSTLER.TTF') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
