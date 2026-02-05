@@ -128,3 +128,14 @@ header h1 {
   font-weight: normal;
 }
 
+header {
+  justify-content: center;
+}
+
+header h1,
+.melysium,
+#logo {
+  font-family: 'KunstlerScript', cursive;
+  color: #000000;
+  text-align: center;
+}
