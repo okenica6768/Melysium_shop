@@ -56,12 +56,12 @@ body::before {
   transform: translate(-50%, -50%);
 
   font-family: 'KunstlerScript', serif;
-  font-size: clamp(160px, 32vw, 380px);
-  color: rgba(255, 255, 255, 0.14);
+  font-size: clamp(150px, 30vw, 360px); /* tiny bit smaller */
+  color: rgba(255, 255, 255, 0.12); /* slightly softer */
 
   text-shadow:
-    0 0 25px rgba(255, 255, 255, 0.15),
-    0 0 60px rgba(255, 255, 255, 0.08);
+    0 0 20px rgba(255, 255, 255, 0.12),
+    0 0 50px rgba(255, 255, 255, 0.06);
 
   pointer-events: none;
   user-select: none;
