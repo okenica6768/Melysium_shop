@@ -1,32 +1,41 @@
-<!DOCTYPE html>
-<html lang="sk">
-<head>
-  <meta charset="UTF-8">
-  <title>Melysium | Cart</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+document.addEventListener("DOMContentLoaded", () => {
+  const cartDiv = document.getElementById("cart-items");
+  const totalDiv = document.getElementById("total");
 
-<header>
-  <h1>Melysium</h1>
-  <nav>
-    <a href="shop.html">Shop</a>
-    <a href="cart.html">Cart</a>
-  </nav>
-</header>
+  if (!cartDiv || !totalDiv) return;
 
-<main>
-  <h2>Your Cart</h2>
-  <div id="cart-items"></div>
-  <h3 id="total"></h3>
-  <button onclick="clearCart()">Clear cart</button>
-</main>
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let total = 0;
 
-<footer>
-  <p>Fictional shop</p>
-</footer>
+  if (cart.length === 0) {
+    cartDiv.innerHTML = "<p>Your cart is empty.</p>";
+    totalDiv.textContent = "Total: 0 €";
+    return;
+  }
 
-<script src="app.js"></script>
-<script src="cart.js"></script>
-</body>
-</html>
+  cart.forEach(item => {
+    const product = products.find(p => p.id === item.id);
+    if (!product) return;
+
+    const price = product.price;
+    total += price;
+
+    cartDiv.insertAdjacentHTML(
+      "beforeend",
+      `
+      <div class="product">
+        <h3>${product.name}</h3>
+        <p>Size: ${item.size}</p>
+        <p>${price} €</p>
+      </div>
+      `
+    );
+  });
+
+  totalDiv.textContent = "Total: " + total + " €";
+});
+
+function clearCart() {
+  localStorage.removeItem("cart");
+  location.reload();
+}
