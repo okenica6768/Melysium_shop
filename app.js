@@ -94,3 +94,20 @@ function addToCart(productId) {
   alert("Added to cart (" + size + ")");
 }
 
+// ===== HEADER LOGO RESIZE ON SCROLL =====
+const header = document.querySelector("header");
+
+function onScroll() {
+  if (!header) return;
+
+  if (window.scrollY === 0) {
+    header.classList.add("top");
+    header.classList.remove("scrolled");
+  } else {
+    header.classList.add("scrolled");
+    header.classList.remove("top");
+  }
+}
+
+window.addEventListener("scroll", onScroll);
+onScroll(); // run once on load
