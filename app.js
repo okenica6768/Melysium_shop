@@ -1,17 +1,53 @@
 const products = [
   {
     id: 1,
-    name: "Shadow Hoodie",
-    price: 59,
-    discount: 20,
-    img: "https://via.placeholder.com/400x500?text=Melysium"
+    name: "Melysium Hoodie Black",
+    price: 79,
+    image: "img/hoodie1.jpg"
   },
   {
     id: 2,
-    name: "Void T-Shirt",
-    price: 35,
-    discount: 0,
-    img: "https://via.placeholder.com/400x500?text=Melysium"
+    name: "Melysium Hoodie Purple",
+    price: 79,
+    image: "img/hoodie2.jpg"
+  },
+
+  /* ===== TEST PRODUCTS FOR SCROLL ===== */
+  {
+    id: 3,
+    name: "Melysium Tee White",
+    price: 39,
+    image: "img/tee1.jpg"
+  },
+  {
+    id: 4,
+    name: "Melysium Tee Black",
+    price: 39,
+    image: "img/tee2.jpg"
+  },
+  {
+    id: 5,
+    name: "Melysium Cap",
+    price: 29,
+    image: "img/cap1.jpg"
+  },
+  {
+    id: 6,
+    name: "Melysium Tote Bag",
+    price: 25,
+    image: "img/bag1.jpg"
+  },
+  {
+    id: 7,
+    name: "Melysium Longsleeve",
+    price: 49,
+    image: "img/long1.jpg"
+  },
+  {
+    id: 8,
+    name: "Melysium Limited Hoodie",
+    price: 99,
+    image: "img/hoodie3.jpg"
   }
 ];
 
