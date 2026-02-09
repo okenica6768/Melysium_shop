@@ -13,8 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  cart.forEach(id => {
-    const product = products.find(p => p.id === id);
+ cart.forEach(item => {
+  const product = products.find(p => p.id === item.id);
     if (!product) return;
 
     const price = product.discount
