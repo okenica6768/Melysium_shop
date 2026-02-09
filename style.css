@@ -80,7 +80,7 @@ nav a {
 
 /* CART ICON (last nav link) */
 nav a:last-child {
-  font-size: 26px;      /* make it visible to humans */
+  font-size: 30px;      /* make it visible to humans */
   line-height: 1;
 }
 
