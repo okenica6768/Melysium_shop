@@ -15,8 +15,8 @@ body {
   background: linear-gradient(
     to bottom,
     #ffffff 0%,
-    #ffffff 5%,
-    #f1edff 10%,
+    #ffffff 7%,
+    #f1edff 12%,
     #7b5cff 35%,
     #4a2ad6 55%,
     #1b0f4d 75%,
@@ -40,16 +40,29 @@ header {
   backdrop-filter: blur(6px);
 }
 
+/* BIG logo when page is at top */
+header.top h1 {
+  font-size: 120px; /* big entrance energy */
+}
+
+/* Smaller logo after scroll */
+header.scrolled h1 {
+  font-size: 62px;
+  transition: font-size 0.3s ease;
+}
+
 header h1 {
   grid-column: 2;
   margin: 0;
 
   font-family: 'KunstlerScript', serif;
-  font-size: 62px; /* bigger, elegant */
+  font-size: 62px;
   font-weight: normal;
   color: #000;
   text-align: center;
   line-height: 1;
+
+  transition: font-size 0.3s ease;
 }
 
 nav {
