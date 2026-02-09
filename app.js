@@ -61,7 +61,7 @@ if (productDiv) {
 
 productDiv.innerHTML += `
   <div class="product">
-    <img src="${p.img}">
+    <img src="${p.image}">
     <h3>${p.name}</h3>
     <p>${finalPrice} €</p>
 
