@@ -49,5 +49,5 @@ function clearCart() {
 }
 
 function completeOrder() {
-  alert("This function is coming soon.");
+  alert("This function is coming soon.:)");
 }
