@@ -272,3 +272,10 @@ main button:hover {
   background: rgba(40, 40, 40, 0.9);
   transform: translateY(-1px);
 }
+
+.cart-actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
