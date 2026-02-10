@@ -47,3 +47,7 @@ function clearCart() {
   localStorage.removeItem("cart");
   location.reload();
 }
+
+function completeOrder() {
+  alert("This function is coming soon.");
+}
