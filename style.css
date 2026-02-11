@@ -183,18 +183,12 @@ h2 {
 }
 
 /* Hover efekt */
-.product:hover img {
-  animation: spin 2s linear infinite;
-}
-
-/* Animácia */
-@keyframes spin {
-  from {
-    transform: rotateY(0deg);
-  }
-  to {
-    transform: rotateY(360deg);
-  }
+.product img {
+  width: 100%;
+  height: 260px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: transparent;
 }
 
 /* ===== BUTTONS ===== */
