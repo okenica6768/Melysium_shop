@@ -72,34 +72,51 @@ const products = [
   }
 ];
 
-
 const productDiv = document.getElementById("products");
+const genreFilter = document.getElementById("genreFilter");
+const typeFilter = document.getElementById("typeFilter");
 
-if (productDiv) {
-  products.forEach(p => {
-    const finalPrice = p.discount
-      ? Math.round(p.price - (p.price * p.discount / 100))
-      : p.price;
+function renderProducts() {
+  if (!productDiv) return;
 
-productDiv.innerHTML += `
-  <div class="product">
-    <img src="${p.image}">
-    <h3>${p.name}</h3>
-    <p>${finalPrice} €</p>
+  productDiv.innerHTML = "";
 
-    <select id="size-${p.id}">
-      <option value="XS">XS</option>
-      <option value="S">S</option>
-      <option value="M" selected>M</option>
-      <option value="L">L</option>
-      <option value="XL">XL</option>
-    </select>
+  const selectedGenre = genreFilter ? genreFilter.value : "all";
+  const selectedType = typeFilter ? typeFilter.value : "all";
 
-    <button onclick="addToCart(${p.id})">Add to cart</button>
-  </div>
-`;
-
+  const filtered = products.filter(p => {
+    const genreMatch = selectedGenre === "all" || p.genre === selectedGenre;
+    const typeMatch = selectedType === "all" || p.subType === selectedType;
+    return genreMatch && typeMatch;
   });
+
+  filtered.forEach(p => {
+    productDiv.innerHTML += `
+      <div class="product">
+        <img src="${p.image}">
+        <h3>${p.name}</h3>
+        <p>${p.price} €</p>
+
+        <select id="size-${p.id}">
+          <option value="XS">XS</option>
+          <option value="S">S</option>
+          <option value="M" selected>M</option>
+          <option value="L">L</option>
+          <option value="XL">XL</option>
+        </select>
+
+        <button onclick="addToCart(${p.id})">Pridať do košíka</button>
+      </div>
+    `;
+  });
+}
+
+if (genreFilter) {
+  genreFilter.addEventListener("change", renderProducts);
+}
+
+if (typeFilter) {
+  typeFilter.addEventListener("change", renderProducts);
 }
 
 function addToCart(productId) {
@@ -113,7 +130,7 @@ function addToCart(productId) {
   });
 
   localStorage.setItem("cart", JSON.stringify(cart));
-  alert("Added to cart (" + size + ")");
+  alert("Pridané do košíka (" + size + ")");
 }
 
 // ===== HEADER LOGO RESIZE ON SCROLL =====
@@ -132,4 +149,7 @@ function onScroll() {
 }
 
 window.addEventListener("scroll", onScroll);
-onScroll(); // run once on load
+onScroll();
+
+// Spustí render pri načítaní
+renderProducts();
