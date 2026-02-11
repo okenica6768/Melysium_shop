@@ -1,10 +1,12 @@
 const products = [
+
   // ===== ROCK =====
   {
     id: 1,
     name: "Rocková mikina Black Edition",
     price: 79,
     image: "img/hoodie1.jpg",
+    hoverImage: "img/hoodie1.gif",
     genre: "rock",
     subType: "hoodie"
   },
@@ -13,6 +15,7 @@ const products = [
     name: "Rockové tričko Vintage",
     price: 39,
     image: "img/tee1.jpg",
+    hoverImage: "img/tee1.gif",
     genre: "rock",
     subType: "tshirt"
   },
@@ -23,6 +26,7 @@ const products = [
     name: "Rapová mikina Purple Drop",
     price: 79,
     image: "img/hoodie2.jpg",
+    hoverImage: "img/hoodie2.gif",
     genre: "rap",
     subType: "hoodie"
   },
@@ -31,6 +35,7 @@ const products = [
     name: "Rapová šiltovka",
     price: 29,
     image: "img/cap1.jpg",
+    hoverImage: "img/cap1.gif",
     genre: "rap",
     subType: "cap"
   },
@@ -41,6 +46,7 @@ const products = [
     name: "Pop tričko White Wave",
     price: 39,
     image: "img/tee2.jpg",
+    hoverImage: "img/tee2.gif",
     genre: "pop",
     subType: "tshirt"
   },
@@ -49,6 +55,7 @@ const products = [
     name: "Pop taška Limited",
     price: 25,
     image: "img/bag1.jpg",
+    hoverImage: "img/bag1.gif",
     genre: "pop",
     subType: "bag"
   },
@@ -59,6 +66,7 @@ const products = [
     name: "Metalový longsleeve Dark",
     price: 49,
     image: "img/long1.jpg",
+    hoverImage: "img/long1.gif",
     genre: "metal",
     subType: "longsleeve"
   },
@@ -67,9 +75,11 @@ const products = [
     name: "Metalová mikina Limited",
     price: 99,
     image: "img/hoodie3.jpg",
+    hoverImage: "img/hoodie3.gif",
     genre: "metal",
     subType: "hoodie"
   }
+
 ];
 
 const productDiv = document.getElementById("products");
