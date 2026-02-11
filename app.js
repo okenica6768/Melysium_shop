@@ -14,7 +14,7 @@ const products = [
     id: 2,
     name: "Rockové tričko Vintage",
     price: 39,
-    image: "test.jpg",
+    image: "img/test.jpg",
     hoverImage: "img/testcat.gif",
     genre: "rock",
     subType: "tshirt"
