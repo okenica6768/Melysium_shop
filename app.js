@@ -1,12 +1,11 @@
 const products = [
-
   // ===== ROCK =====
   {
     id: 1,
     name: "Rocková mikina Black Edition",
     price: 79,
-    image: "img/test.jpg",
-    hoverImage: "testcat.gif",
+    image: "img/hoodie1.jpg",
+    hoverImage: "img/hoodie1.gif",
     genre: "rock",
     subType: "hoodie"
   },
@@ -15,7 +14,7 @@ const products = [
     name: "Rockové tričko Vintage",
     price: 39,
     image: "img/tee1.jpg",
-    hoverImage: "img/tee1.gif",
+    hoverImage: null,
     genre: "rock",
     subType: "tshirt"
   },
@@ -26,7 +25,7 @@ const products = [
     name: "Rapová mikina Purple Drop",
     price: 79,
     image: "img/hoodie2.jpg",
-    hoverImage: "img/hoodie2.gif",
+    hoverImage: null,
     genre: "rap",
     subType: "hoodie"
   },
@@ -35,7 +34,7 @@ const products = [
     name: "Rapová šiltovka",
     price: 29,
     image: "img/cap1.jpg",
-    hoverImage: "img/cap1.gif",
+    hoverImage: null,
     genre: "rap",
     subType: "cap"
   },
@@ -46,7 +45,7 @@ const products = [
     name: "Pop tričko White Wave",
     price: 39,
     image: "img/tee2.jpg",
-    hoverImage: "img/tee2.gif",
+    hoverImage: null,
     genre: "pop",
     subType: "tshirt"
   },
@@ -55,7 +54,7 @@ const products = [
     name: "Pop taška Limited",
     price: 25,
     image: "img/bag1.jpg",
-    hoverImage: "img/bag1.gif",
+    hoverImage: null,
     genre: "pop",
     subType: "bag"
   },
@@ -66,7 +65,7 @@ const products = [
     name: "Metalový longsleeve Dark",
     price: 49,
     image: "img/long1.jpg",
-    hoverImage: "img/long1.gif",
+    hoverImage: null,
     genre: "metal",
     subType: "longsleeve"
   },
@@ -75,91 +74,45 @@ const products = [
     name: "Metalová mikina Limited",
     price: 99,
     image: "img/hoodie3.jpg",
-    hoverImage: "img/hoodie3.gif",
+    hoverImage: null,
     genre: "metal",
     subType: "hoodie"
   }
-
 ];
 
-const productDiv = document.getElementById("products");
-const genreFilter = document.getElementById("genreFilter");
-const typeFilter = document.getElementById("typeFilter");
+const productContainer = document.getElementById("product-container");
 
-function renderProducts() {
-  if (!productDiv) return;
+function renderProducts(items) {
+  productContainer.innerHTML = "";
 
-  productDiv.innerHTML = "";
+  items.forEach(p => {
+    const card = document.createElement("div");
+    card.classList.add("product-card");
 
-  const selectedGenre = genreFilter ? genreFilter.value : "all";
-  const selectedType = typeFilter ? typeFilter.value : "all";
-
-  const filtered = products.filter(p => {
-    const genreMatch = selectedGenre === "all" || p.genre === selectedGenre;
-    const typeMatch = selectedType === "all" || p.subType === selectedType;
-    return genreMatch && typeMatch;
-  });
-
-  filtered.forEach(p => {
-    productDiv.innerHTML += `
-      <div class="product">
-        <img src="${p.image}">
-        <h3>${p.name}</h3>
-        <p>${p.price} €</p>
-
-        <select id="size-${p.id}">
-          <option value="XS">XS</option>
-          <option value="S">S</option>
-          <option value="M" selected>M</option>
-          <option value="L">L</option>
-          <option value="XL">XL</option>
-        </select>
-
-        <button onclick="addToCart(${p.id})">Pridať do košíka</button>
-      </div>
+    card.innerHTML = `
+      <img 
+        src="${p.image}" 
+        data-static="${p.image}" 
+        data-gif="${p.hoverImage ? p.hoverImage : ""}"
+      >
+      <h3>${p.name}</h3>
+      <p>${p.price}€</p>
     `;
+
+    const img = card.querySelector("img");
+
+    if (p.hoverImage) {
+      img.addEventListener("mouseenter", () => {
+        img.src = img.dataset.gif;
+      });
+
+      img.addEventListener("mouseleave", () => {
+        img.src = img.dataset.static;
+      });
+    }
+
+    productContainer.appendChild(card);
   });
 }
 
-if (genreFilter) {
-  genreFilter.addEventListener("change", renderProducts);
-}
-
-if (typeFilter) {
-  typeFilter.addEventListener("change", renderProducts);
-}
-
-function addToCart(productId) {
-  const size = document.getElementById("size-" + productId).value;
-
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-  cart.push({
-    id: productId,
-    size: size
-  });
-
-  localStorage.setItem("cart", JSON.stringify(cart));
-  alert("Pridané do košíka (" + size + ")");
-}
-
-// ===== HEADER LOGO RESIZE ON SCROLL =====
-const header = document.querySelector("header");
-
-function onScroll() {
-  if (!header) return;
-
-  if (window.scrollY === 0) {
-    header.classList.add("top");
-    header.classList.remove("scrolled");
-  } else {
-    header.classList.add("scrolled");
-    header.classList.remove("top");
-  }
-}
-
-window.addEventListener("scroll", onScroll);
-onScroll();
-
-// Spustí render pri načítaní
-renderProducts();
+renderProducts(products);
