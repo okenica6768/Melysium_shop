@@ -6,7 +6,7 @@ const products = [
     name: "Rocková mikina Black Edition",
     price: 79,
     image: "img/test.jpg",
-    hoverImage: "img/hoodie1.gif",
+    hoverImage: "testcat.GIF",
     genre: "rock",
     subType: "hoodie"
   },
