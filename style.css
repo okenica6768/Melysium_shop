@@ -39,14 +39,26 @@ header {
   padding: 18px 24px;
   background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(6px);
+
+  transition: all 0.3s ease;
 }
 
-/* BIG logo when page is at top */
+/* Keď si hore */
+header.top {
+  grid-template-rows: auto auto;
+}
+
+/* Keď scrollneš */
+header.scrolled {
+  grid-template-rows: auto;
+}
+
+/* BIG logo hore */
 header.top h1 {
   font-size: 120px;
 }
 
-/* Smaller logo after scroll */
+/* Menšie logo po scroll */
 header.scrolled h1 {
   font-size: 62px;
 }
@@ -58,7 +70,6 @@ header h1 {
   margin: 0;
 
   font-family: 'KunstlerScript', serif;
-  font-size: 62px;
   font-weight: normal;
   color: #000;
   text-align: center;
@@ -77,14 +88,12 @@ header h1 {
   color: #000;
   text-align: center;
   font-weight: 600;
-  opacity: 1;
   transition: opacity 0.3s ease;
 }
 
-/* Hide slogan after scroll */
+/* Skry slogan kompletne po scroll */
 header.scrolled .slogan {
-  opacity: 0;
-  pointer-events: none;
+  display: none;
 }
 
 /* Navigation */
