@@ -75,8 +75,6 @@
   const translations = {
     sk: {
       slogan: "Hudba je náš raj.",
-      navShop: "Shop",
-      navKontakt: "Kontakt",
       genreAll: "Všetky žánre",
       typeAll: "Všetky typy",
       typeHoodie: "Mikiny",
@@ -93,8 +91,6 @@
     },
     en: {
       slogan: "Music is our paradise.",
-      navShop: "Shop",
-      navKontakt: "Contact",
       genreAll: "All genres",
       typeAll: "All types",
       typeHoodie: "Hoodies",
@@ -119,22 +115,12 @@
   function applyLanguage(lang) {
     const t = translations[lang];
 
-    document.getElementById("slogan").textContent = t.slogan;
-    document.getElementById("navShop").textContent = t.navShop;
-    document.getElementById("navKontakt").textContent = t.navKontakt;
-    document.getElementById("genreAll").textContent = t.genreAll;
-    document.getElementById("typeAll").textContent = t.typeAll;
-    document.getElementById("typeHoodie").textContent = t.typeHoodie;
-    document.getElementById("typeTshirt").textContent = t.typeTshirt;
-    document.getElementById("typeLong").textContent = t.typeLong;
-    document.getElementById("typeCap").textContent = t.typeCap;
-    document.getElementById("typeBag").textContent = t.typeBag;
-    document.getElementById("footerText").textContent = t.footerText;
-    document.getElementById("footerAbout").textContent = t.footerAbout;
-    document.getElementById("footerTerms").textContent = t.footerTerms;
-    document.getElementById("footerDelivery").textContent = t.footerDelivery;
-    document.getElementById("footerClaims").textContent = t.footerClaims;
-    document.getElementById("footerContact").textContent = t.footerContact;
+    Object.keys(t).forEach(key => {
+      const element = document.getElementById(key);
+      if (element) {
+        element.textContent = t[key];
+      }
+    });
   }
 
   const savedLang = localStorage.getItem("language") || "sk";
