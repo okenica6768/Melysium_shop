@@ -1,9 +1,21 @@
+// ===== JAZYK =====
+let currentLang = localStorage.getItem("lang") || "sk";
+
+function setLanguage(lang) {
+  currentLang = lang;
+  localStorage.setItem("lang", lang);
+  renderProducts();
+}
+
+// ===== PRODUKTY =====
 const products = [
 
-  // ===== ROCK =====
   {
     id: 1,
-    name: "Rocková mikina Black Edition",
+    name: {
+      sk: "Rocková mikina Black Edition",
+      en: "Rock Hoodie Black Edition"
+    },
     price: 79,
     image: "img/hoodie1.jpg",
     hoverImage: "img/testcat.gif",
@@ -12,18 +24,22 @@ const products = [
   },
   {
     id: 2,
-    name: "Rockové tričko Vintage",
+    name: {
+      sk: "Rockové tričko Vintage",
+      en: "Rock T-Shirt Vintage"
+    },
     price: 39,
     image: "img/test.jpg",
     hoverImage: "img/testcat.gif",
     genre: "rock",
     subType: "tshirt"
   },
-
-  // ===== RAP =====
   {
     id: 3,
-    name: "Rapová mikina Purple Drop",
+    name: {
+      sk: "Rapová mikina Purple Drop",
+      en: "Rap Hoodie Purple Drop"
+    },
     price: 79,
     image: "img/hoodie2.jpg",
     hoverImage: "img/testcat.gif",
@@ -32,18 +48,22 @@ const products = [
   },
   {
     id: 4,
-    name: "Rapová šiltovka",
+    name: {
+      sk: "Rapová šiltovka",
+      en: "Rap Cap"
+    },
     price: 29,
     image: "img/cap1.jpg",
     hoverImage: "img/testcat.gif",
     genre: "rap",
     subType: "cap"
   },
-
-  // ===== POP =====
   {
     id: 5,
-    name: "Pop tričko White Wave",
+    name: {
+      sk: "Pop tričko White Wave",
+      en: "Pop T-Shirt White Wave"
+    },
     price: 39,
     image: "img/tee2.jpg",
     hoverImage: "img/testcat.gif",
@@ -52,18 +72,22 @@ const products = [
   },
   {
     id: 6,
-    name: "Pop taška Limited",
+    name: {
+      sk: "Pop taška Limited",
+      en: "Pop Bag Limited"
+    },
     price: 25,
     image: "img/bag1.jpg",
     hoverImage: "img/testcat.gif",
     genre: "pop",
     subType: "bag"
   },
-
-  // ===== METAL =====
   {
     id: 7,
-    name: "Metalový longsleeve Dark",
+    name: {
+      sk: "Metalový longsleeve Dark",
+      en: "Metal Longsleeve Dark"
+    },
     price: 49,
     image: "img/long1.jpg",
     hoverImage: "img/testcat.gif",
@@ -72,7 +96,10 @@ const products = [
   },
   {
     id: 8,
-    name: "Metalová mikina Limited",
+    name: {
+      sk: "Metalová mikina Limited",
+      en: "Metal Hoodie Limited"
+    },
     price: 99,
     image: "img/hoodie3.jpg",
     hoverImage: "img/testcat.gif",
@@ -81,10 +108,12 @@ const products = [
   }
 ];
 
+// ===== ELEMENTY =====
 const productDiv = document.getElementById("products");
 const genreFilter = document.getElementById("genreFilter");
 const typeFilter = document.getElementById("typeFilter");
 
+// ===== RENDER =====
 function renderProducts() {
   if (!productDiv) return;
 
@@ -109,7 +138,7 @@ function renderProducts() {
           onmouseover="this.src=this.dataset.gif"
           onmouseout="this.src=this.dataset.static"
         >
-        <h3>${p.name}</h3>
+        <h3>${p.name[currentLang]}</h3>
         <p>${p.price} €</p>
 
         <select id="size-${p.id}">
@@ -120,15 +149,19 @@ function renderProducts() {
           <option value="XL">XL</option>
         </select>
 
-        <button onclick="addToCart(${p.id})">Pridať do košíka</button>
+        <button onclick="addToCart(${p.id})">
+          ${currentLang === "sk" ? "Pridať do košíka" : "Add to cart"}
+        </button>
       </div>
     `;
   });
 }
 
+// ===== FILTER EVENTS =====
 if (genreFilter) genreFilter.addEventListener("change", renderProducts);
 if (typeFilter) typeFilter.addEventListener("change", renderProducts);
 
+// ===== CART =====
 function addToCart(productId) {
   const size = document.getElementById("size-" + productId).value;
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -136,9 +169,14 @@ function addToCart(productId) {
   cart.push({ id: productId, size: size });
   localStorage.setItem("cart", JSON.stringify(cart));
 
-  alert("Pridané do košíka (" + size + ")");
+  alert(
+    currentLang === "sk"
+      ? "Pridané do košíka (" + size + ")"
+      : "Added to cart (" + size + ")"
+  );
 }
 
+// ===== HEADER SCROLL =====
 const header = document.querySelector("header");
 
 function onScroll() {
@@ -156,4 +194,5 @@ function onScroll() {
 window.addEventListener("scroll", onScroll);
 onScroll();
 
+// INITIAL RENDER
 renderProducts();
