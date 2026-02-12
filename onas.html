@@ -9,45 +9,46 @@
 
 <header>
   <h1>Melysium</h1>
-  <p class="slogan">Hudba je náš raj.</p>
+  <p class="slogan" id="slogan">Hudba je náš raj.</p>
 
   <nav class="nav-icons">
-    <a href="shop.html">Shop</a>
+    <a href="shop.html" id="navShop">Shop</a>
     <a href="cart.html">🛒</a>
+    <a href="kontakt.html" id="navKontakt">Kontakt</a>
   </nav>
 </header>
 
 <main>
   <div class="product" style="max-width:900px; margin:60px auto; padding:50px;">
 
-    <h2>O nás</h2>
+    <h2 id="aboutTitle">O nás</h2>
 
-    <p>
+    <p id="p1">
       Melysium vzniklo z lásky k hudbe. Veríme, že hudba nie je len zvuk –
       je to emócia, identita a spôsob, ako vyjadriť kto sme.
     </p>
 
-    <p>
+    <p id="p2">
       Naše oblečenie, šperky a doplnky sú inšpirované hudobnými albumami,
       atmosférou koncertov a momentmi, ktoré si človek pamätá celý život.
       Každý produkt je poctou nálade, ktorú hudba dokáže vytvoriť.
     </p>
 
-    <p>
+    <p id="p3">
       Nechceme byť len ďalším e-shopom. Naším cieľom je vytvoriť značku,
       ktorá spája ľudí s rovnakým cítením. Značku, ktorá nositeľovi
       umožní vyjadriť svoj vnútorný svet navonok.
     </p>
 
-    <h3>Naša vízia</h3>
+    <h3 id="visionTitle">Naša vízia</h3>
 
-    <p>
+    <p id="p4">
       Budovať komunitu ľudí, pre ktorých je hudba útočiskom.
       Prinášať limitované kolekcie inšpirované ikonickými albumami
       a vytvárať dizajn, ktorý má príbeh.
     </p>
 
-    <p>
+    <p id="p5">
       Hudba je náš raj. A Melysium je jeho odrazom.
     </p>
 
@@ -55,5 +56,60 @@
 </main>
 
 <footer>
-  <p>
+  <p id="footerText">
     Táto spoločnosť je cvičná firma založená pri Obchodnej akadémii Nevädzová v Bratislave.
+  </p>
+</footer>
+
+<script>
+  const translations = {
+    sk: {
+      slogan: "Hudba je náš raj.",
+      navShop: "Shop",
+      navKontakt: "Kontakt",
+      aboutTitle: "O nás",
+      p1: "Melysium vzniklo z lásky k hudbe. Veríme, že hudba nie je len zvuk – je to emócia, identita a spôsob, ako vyjadriť kto sme.",
+      p2: "Naše oblečenie, šperky a doplnky sú inšpirované hudobnými albumami, atmosférou koncertov a momentmi, ktoré si človek pamätá celý život. Každý produkt je poctou nálade, ktorú hudba dokáže vytvoriť.",
+      p3: "Nechceme byť len ďalším e-shopom. Naším cieľom je vytvoriť značku, ktorá spája ľudí s rovnakým cítením. Značku, ktorá nositeľovi umožní vyjadriť svoj vnútorný svet navonok.",
+      visionTitle: "Naša vízia",
+      p4: "Budovať komunitu ľudí, pre ktorých je hudba útočiskom. Prinášať limitované kolekcie inšpirované ikonickými albumami a vytvárať dizajn, ktorý má príbeh.",
+      p5: "Hudba je náš raj. A Melysium je jeho odrazom.",
+      footerText: "Táto spoločnosť je cvičná firma založená pri Obchodnej akadémii Nevädzová v Bratislave."
+    },
+    en: {
+      slogan: "Music is our paradise.",
+      navShop: "Shop",
+      navKontakt: "Contact",
+      aboutTitle: "About us",
+      p1: "Melysium was created from a love for music. We believe music is not just sound – it is emotion, identity and a way to express who we are.",
+      p2: "Our clothing, jewelry and accessories are inspired by music albums, concert atmospheres and unforgettable moments. Every product is a tribute to the mood that music creates.",
+      p3: "We don’t want to be just another online store. Our goal is to create a brand that connects people who feel the same way. A brand that allows the wearer to express their inner world outwardly.",
+      visionTitle: "Our vision",
+      p4: "To build a community of people for whom music is a refuge. To bring limited collections inspired by iconic albums and create designs with a story.",
+      p5: "Music is our paradise. And Melysium is its reflection.",
+      footerText: "This company is a training company established at Business Academy Nevädzová in Bratislava."
+    }
+  };
+
+  function applyLanguage(lang) {
+    const t = translations[lang];
+
+    document.getElementById("slogan").textContent = t.slogan;
+    document.getElementById("navShop").textContent = t.navShop;
+    document.getElementById("navKontakt").textContent = t.navKontakt;
+    document.getElementById("aboutTitle").textContent = t.aboutTitle;
+    document.getElementById("p1").textContent = t.p1;
+    document.getElementById("p2").textContent = t.p2;
+    document.getElementById("p3").textContent = t.p3;
+    document.getElementById("visionTitle").textContent = t.visionTitle;
+    document.getElementById("p4").textContent = t.p4;
+    document.getElementById("p5").textContent = t.p5;
+    document.getElementById("footerText").textContent = t.footerText;
+  }
+
+  const savedLang = localStorage.getItem("language") || "sk";
+  applyLanguage(savedLang);
+</script>
+
+</body>
+</html>
