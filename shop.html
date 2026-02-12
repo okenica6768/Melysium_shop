@@ -2,19 +2,25 @@
 <html lang="sk">
 <head>
   <meta charset="UTF-8">
+  <title>Melysium | Shop</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- WATERMARK LOGO – FIXED, POD PRODUKTMI -->
 <div class="hero-watermark">Melysium</div>
 
 <header>
   <h1>Melysium</h1>
-  <p class="slogan">Hudba je náš raj.</p>
+  <p class="slogan" id="slogan">Hudba je náš raj.</p>
 
   <nav class="nav-icons">
+    <a href="shop.html" id="navShop">Shop</a>
     <a href="cart.html" aria-label="Cart">🛒</a>
+    <a href="kontakt.html" id="navKontakt">Kontakt</a>
+
+    <!-- Language switch -->
+    <button onclick="setLanguage('sk')">SK</button>
+    <button onclick="setLanguage('en')">EN</button>
   </nav>
 </header>
 
@@ -23,7 +29,7 @@
   <div class="filters">
 
     <select id="genreFilter">
-      <option value="all">Všetky žánre</option>
+      <option value="all" id="genreAll">Všetky žánre</option>
       <option value="rock">Rock</option>
       <option value="rap">Rap</option>
       <option value="pop">Pop</option>
@@ -31,12 +37,12 @@
     </select>
 
     <select id="typeFilter">
-      <option value="all">Všetky typy</option>
-      <option value="hoodie">Mikiny</option>
-      <option value="tshirt">Tričká</option>
-      <option value="longsleeve">Longsleeve</option>
-      <option value="cap">Šiltovky</option>
-      <option value="bag">Tašky</option>
+      <option value="all" id="typeAll">Všetky typy</option>
+      <option value="hoodie" id="typeHoodie">Mikiny</option>
+      <option value="tshirt" id="typeTshirt">Tričká</option>
+      <option value="longsleeve" id="typeLong">Longsleeve</option>
+      <option value="cap" id="typeCap">Šiltovky</option>
+      <option value="bag" id="typeBag">Tašky</option>
     </select>
 
   </div>
@@ -46,23 +52,93 @@
 </main>
 
 <footer>
-  <p>
+  <p id="footerText">
     Táto spoločnosť je cvičná firma založená pri Obchodnej akadémii Nevädzová v Bratislave.
     Firma nie je platiteľom DPH. Ceny uvedené na webovej stránke neobsahujú DPH.
   </p>
 </footer>
 
-
 <div class="site-footer">
   <div class="footer-links">
-    <a href="onas.html">O nás</a>
-    <a href="#">Obchodné podmienky</a>
-    <a href="#">Doručovanie</a>
-    <a href="#">Reklamácie</a>
-    <a href="kontakt.html">Kontakt</a>
+    <a href="onas.html" id="footerAbout">O nás</a>
+    <a href="#" id="footerTerms">Obchodné podmienky</a>
+    <a href="#" id="footerDelivery">Doručovanie</a>
+    <a href="#" id="footerClaims">Reklamácie</a>
+    <a href="kontakt.html" id="footerContact">Kontakt</a>
   </div>
 </div>
-  
+
 <script src="app.js"></script>
+
+<script>
+  const translations = {
+    sk: {
+      slogan: "Hudba je náš raj.",
+      navShop: "Shop",
+      navKontakt: "Kontakt",
+      genreAll: "Všetky žánre",
+      typeAll: "Všetky typy",
+      typeHoodie: "Mikiny",
+      typeTshirt: "Tričká",
+      typeLong: "Longsleeve",
+      typeCap: "Šiltovky",
+      typeBag: "Tašky",
+      footerText: "Táto spoločnosť je cvičná firma založená pri Obchodnej akadémii Nevädzová v Bratislave. Firma nie je platiteľom DPH. Ceny uvedené na webovej stránke neobsahujú DPH.",
+      footerAbout: "O nás",
+      footerTerms: "Obchodné podmienky",
+      footerDelivery: "Doručovanie",
+      footerClaims: "Reklamácie",
+      footerContact: "Kontakt"
+    },
+    en: {
+      slogan: "Music is our paradise.",
+      navShop: "Shop",
+      navKontakt: "Contact",
+      genreAll: "All genres",
+      typeAll: "All types",
+      typeHoodie: "Hoodies",
+      typeTshirt: "T-shirts",
+      typeLong: "Longsleeve",
+      typeCap: "Caps",
+      typeBag: "Bags",
+      footerText: "This company is a training company established at Business Academy Nevädzová in Bratislava. The company is not a VAT payer. Prices listed on the website do not include VAT.",
+      footerAbout: "About us",
+      footerTerms: "Terms and conditions",
+      footerDelivery: "Delivery",
+      footerClaims: "Complaints",
+      footerContact: "Contact"
+    }
+  };
+
+  function setLanguage(lang) {
+    localStorage.setItem("language", lang);
+    applyLanguage(lang);
+  }
+
+  function applyLanguage(lang) {
+    const t = translations[lang];
+
+    document.getElementById("slogan").textContent = t.slogan;
+    document.getElementById("navShop").textContent = t.navShop;
+    document.getElementById("navKontakt").textContent = t.navKontakt;
+    document.getElementById("genreAll").textContent = t.genreAll;
+    document.getElementById("typeAll").textContent = t.typeAll;
+    document.getElementById("typeHoodie").textContent = t.typeHoodie;
+    document.getElementById("typeTshirt").textContent = t.typeTshirt;
+    document.getElementById("typeLong").textContent = t.typeLong;
+    document.getElementById("typeCap").textContent = t.typeCap;
+    document.getElementById("typeBag").textContent = t.typeBag;
+    document.getElementById("footerText").textContent = t.footerText;
+    document.getElementById("footerAbout").textContent = t.footerAbout;
+    document.getElementById("footerTerms").textContent = t.footerTerms;
+    document.getElementById("footerDelivery").textContent = t.footerDelivery;
+    document.getElementById("footerClaims").textContent = t.footerClaims;
+    document.getElementById("footerContact").textContent = t.footerContact;
+  }
+
+  const savedLang = localStorage.getItem("language") || "sk";
+  applyLanguage(savedLang);
+</script>
+
 </body>
 </html>
