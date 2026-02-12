@@ -22,35 +22,41 @@
 
 <header>
   <h1>Melysium</h1>
+
+  <div class="lang-switch">
+    <button onclick="setLanguage('sk')">SK</button>
+    <button onclick="setLanguage('en')">EN</button>
+  </div>
+
   <nav class="nav-icons">
-    <a href="shop.html">Shop</a>
-    <a href="cart.html">Cart</a>
-    <a href="kontakt.html">Kontakt</a>
+    <a href="shop.html" id="navShop"></a>
+    <a href="cart.html" id="navCart"></a>
+    <a href="kontakt.html" id="navKontakt"></a>
   </nav>
 </header>
 
 <main>
   <div class="product" style="max-width:700px; margin:40px auto; padding:40px;">
-    <h2>Kontakt</h2>
+    <h2 id="contactTitle"></h2>
 
-    <p><strong>Názov firmy:</strong> Melysium s.r.o.</p>
-    <p><strong>Adresa:</strong> Grösslingova 1, 811 09 Bratislava</p>
+    <p><strong id="companyLabel"></strong> Melysium s.r.o.</p>
+    <p><strong id="addressLabel"></strong> Grösslingova 1, 811 09 Bratislava</p>
     <p><strong>IČO:</strong> 12345678</p>
-    <p><strong>Registračné číslo cvičnej firmy:</strong> CF-2026-001</p>
+    <p><strong id="regLabel"></strong> CF-2026-001</p>
     <p><strong>Email:</strong> info@melysium.sk</p>
-    <p><strong>Mobil:</strong> +421 910 555 321</p>
+    <p><strong id="phoneLabel"></strong> +421 910 555 321</p>
     <p><strong>Instagram:</strong> 
       <a href="https://instagram.com/melysium" target="_blank">
         @melysium
       </a>
     </p>
 
-    <h3>Otváracie hodiny</h3>
-    <p>Pondelok – Piatok: 9:00 – 17:00</p>
-    <p>Sobota: 10:00 – 14:00</p>
-    <p>Nedeľa: zatvorené</p>
+    <h3 id="hoursTitle"></h3>
+    <p id="hours1"></p>
+    <p id="hours2"></p>
+    <p id="hours3"></p>
 
-    <h3>Kde nás nájdete</h3>
+    <h3 id="locationTitle"></h3>
 
     <iframe 
       src="https://www.google.com/maps?q=Grösslingova+1+Bratislava&output=embed"
@@ -63,11 +69,70 @@
 </main>
 
 <footer>
-  <p>
-    Táto spoločnosť je cvičná firma založená pri Obchodnej akadémii Nevädzová v Bratislave.
-    Firma nie je platiteľom DPH. Ceny uvedené na webovej stránke neobsahujú DPH.
-  </p>
+  <p id="footerText"></p>
 </footer>
+
+<script src="app.js"></script>
+
+<script>
+function updateContactLanguage() {
+  const lang = localStorage.getItem("lang") || "sk";
+
+  document.getElementById("navShop").textContent =
+    lang === "sk" ? "Obchod" : "Shop";
+
+  document.getElementById("navCart").textContent =
+    lang === "sk" ? "Košík" : "Cart";
+
+  document.getElementById("navKontakt").textContent =
+    lang === "sk" ? "Kontakt" : "Contact";
+
+  document.getElementById("contactTitle").textContent =
+    lang === "sk" ? "Kontakt" : "Contact";
+
+  document.getElementById("companyLabel").textContent =
+    lang === "sk" ? "Názov firmy:" : "Company name:";
+
+  document.getElementById("addressLabel").textContent =
+    lang === "sk" ? "Adresa:" : "Address:";
+
+  document.getElementById("regLabel").textContent =
+    lang === "sk"
+      ? "Registračné číslo cvičnej firmy:"
+      : "Training company registration number:";
+
+  document.getElementById("phoneLabel").textContent =
+    lang === "sk" ? "Mobil:" : "Phone:";
+
+  document.getElementById("hoursTitle").textContent =
+    lang === "sk" ? "Otváracie hodiny" : "Opening hours";
+
+  document.getElementById("hours1").textContent =
+    lang === "sk"
+      ? "Pondelok – Piatok: 9:00 – 17:00"
+      : "Monday – Friday: 9:00 – 17:00";
+
+  document.getElementById("hours2").textContent =
+    lang === "sk"
+      ? "Sobota: 10:00 – 14:00"
+      : "Saturday: 10:00 – 14:00";
+
+  document.getElementById("hours3").textContent =
+    lang === "sk"
+      ? "Nedeľa: zatvorené"
+      : "Sunday: Closed";
+
+  document.getElementById("locationTitle").textContent =
+    lang === "sk" ? "Kde nás nájdete" : "Where to find us";
+
+  document.getElementById("footerText").textContent =
+    lang === "sk"
+      ? "Táto spoločnosť je cvičná firma založená pri Obchodnej akadémii Nevädzová v Bratislave. Firma nie je platiteľom DPH. Ceny uvedené na webovej stránke neobsahujú DPH."
+      : "This company is a training company established at the Business Academy Nevädzová in Bratislava. The company is not a VAT payer. Prices on this website do not include VAT.";
+}
+
+updateContactLanguage();
+</script>
 
 </body>
 </html>
