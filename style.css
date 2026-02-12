@@ -423,8 +423,8 @@ main button:hover {
   display: flex;
   justify-content: flex-start;
   gap: 20px;
-  margin: 40px 0 25px 0;
-  padding: 0 40px;   /* rovnaký padding ako má grid */
+  margin: 15px 0;
+  padding: 0 40px;
 }
 
 .filters select {
