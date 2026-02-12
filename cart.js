@@ -2,21 +2,24 @@ document.addEventListener("DOMContentLoaded", () => {
   const cartDiv = document.getElementById("cart-items");
   const totalDiv = document.getElementById("total");
 
-  // Safety check so the script doesn't explode on other pages
   if (!cartDiv || !totalDiv) return;
 
-  // Load cart from localStorage
+  const lang = localStorage.getItem("lang") || "sk";
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   let total = 0;
 
-  // Empty cart state
+  // Empty cart
   if (cart.length === 0) {
-    cartDiv.innerHTML = "<p>Your cart is empty.</p>";
-    totalDiv.textContent = "Total: 0 €";
+    cartDiv.innerHTML =
+      "<p>" +
+      (lang === "sk" ? "Košík je prázdny." : "Your cart is empty.") +
+      "</p>";
+
+    totalDiv.textContent =
+      (lang === "sk" ? "Spolu: " : "Total: ") + "0 €";
     return;
   }
 
-  // Render cart items
   cart.forEach(item => {
     const product = products.find(p => p.id === item.id);
     if (!product) return;
@@ -31,23 +34,30 @@ document.addEventListener("DOMContentLoaded", () => {
       "beforeend",
       `
       <div class="product">
-        <h3>${product.name}</h3>
-        <p>Size: ${item.size}</p>
+        <h3>${product.name[lang]}</h3>
+        <p>${lang === "sk" ? "Veľkosť" : "Size"}: ${item.size}</p>
         <p>${price} €</p>
       </div>
       `
     );
   });
 
-  totalDiv.textContent = "Total: " + total + " €";
+  totalDiv.textContent =
+    (lang === "sk" ? "Spolu: " : "Total: ") + total + " €";
 });
 
-// Clear entire cart
+// Clear cart
 function clearCart() {
   localStorage.removeItem("cart");
   location.reload();
 }
 
 function completeOrder() {
-  alert("This function is coming soon. :)");
+  const lang = localStorage.getItem("lang") || "sk";
+
+  alert(
+    lang === "sk"
+      ? "Táto funkcia bude čoskoro dostupná."
+      : "This function is coming soon."
+  );
 }
