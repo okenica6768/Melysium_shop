@@ -9,6 +9,12 @@
 
 <header>
   <h1>Melysium</h1>
+
+  <div class="lang-switch">
+    <button onclick="setLanguage('sk')">SK</button>
+    <button onclick="setLanguage('en')">EN</button>
+  </div>
+
   <nav class="nav-icons">
     <a href="shop.html" aria-label="Shop">🛍️</a>
     <a href="cart.html" aria-label="Cart">🛒</a>
@@ -16,28 +22,46 @@
 </header>
 
 <main>
-  <h2>Your Cart</h2>
+  <h2 id="cartTitle"></h2>
 
   <div id="cart-items"></div>
 
   <h3 id="total"></h3>
 
   <div class="cart-actions">
-    <button onclick="clearCart()">Clear cart</button>
-    <button onclick="completeOrder()">Complete order</button>
+    <button onclick="clearCart()" id="clearBtn"></button>
+    <button onclick="completeOrder()" id="completeBtn"></button>
   </div>
 </main>
 
-
 <footer>
-  <p>
-    Táto spoločnosť je cvičná firma založená pri Obchodnej akadémii Nevädzová v Bratislave.
-    Firma nie je platiteľom DPH. Ceny uvedené na webovej stránke neobsahujú DPH.
-  </p>
+  <p id="footerText"></p>
 </footer>
 
-<!-- IMPORTANT: app.js FIRST, cart.js SECOND -->
 <script src="app.js"></script>
 <script src="cart.js"></script>
+
+<script>
+function updateCartLanguage() {
+  const lang = localStorage.getItem("lang") || "sk";
+
+  document.getElementById("cartTitle").textContent =
+    lang === "sk" ? "Tvoj košík" : "Your Cart";
+
+  document.getElementById("clearBtn").textContent =
+    lang === "sk" ? "Vyčistiť košík" : "Clear cart";
+
+  document.getElementById("completeBtn").textContent =
+    lang === "sk" ? "Dokončiť objednávku" : "Complete order";
+
+  document.getElementById("footerText").textContent =
+    lang === "sk"
+      ? "Táto spoločnosť je cvičná firma založená pri Obchodnej akadémii Nevädzová v Bratislave. Firma nie je platiteľom DPH. Ceny uvedené na webovej stránke neobsahujú DPH."
+      : "This company is a training company established at the Business Academy Nevädzová in Bratislava. The company is not a VAT payer. Prices on this website do not include VAT.";
+}
+
+updateCartLanguage();
+</script>
+
 </body>
 </html>
