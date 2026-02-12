@@ -400,3 +400,37 @@ main button:hover {
 .lang-btn:hover {
   opacity: 0.6;
 }
+
+/* FILTER BAR - GLASS STYLE */
+
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 50px auto 30px auto;
+  padding: 15px 25px;
+
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+
+  width: fit-content;
+}
+
+.filters select {
+  padding: 12px 22px;
+  border-radius: 12px;
+  border: none;
+  font-size: 15px;
+
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.filters select:hover {
+  background: rgba(0, 0, 0, 0.95);
+  transform: translateY(-2px);
+}
