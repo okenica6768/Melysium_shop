@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Melysium | Košík</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="cart">
+
+<header>
+  <div class="lang-switch" role="group" aria-label="Jazyk">
+    <button type="button" class="lang-btn" data-lang="sk" aria-pressed="true">SK</button>
+    <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+  </div>
+
+  <h1><a href="shop.html">Melysium</a></h1>
+
+  <nav class="site-nav" aria-label="Hlavná navigácia">
+    <a href="shop.html" data-i18n="navShop">Obchod</a>
+    <a href="onas.html" data-i18n="navAbout">O nás</a>
+    <a href="kontakt.html" data-i18n="navContact">Kontakt</a>
+    <a href="cart.html" data-i18n="navCart" aria-current="page">Košík</a>
+  </nav>
+</header>
+
+<main>
+  <h2 data-i18n="cartTitle">Tvoj košík</h2>
+  <div id="cart-items" aria-live="polite"></div>
+  <p id="total"></p>
+
+  <div class="cart-actions">
+    <button type="button" onclick="clearCart()" data-i18n="clearCart">Vyčistiť košík</button>
+    <button type="button" onclick="completeOrder()" data-i18n="completeOrder">Dokončiť objednávku</button>
+  </div>
+</main>
+
+<footer>
+  <p data-i18n="footerText"></p>
+</footer>
+
+<script src="js/products.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/cart.js"></script>
+</body>
+</html>

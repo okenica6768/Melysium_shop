@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Melysium – hudobne inšpirované oblečenie a doplnky.">
+  <title>Melysium | Obchod</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="shop">
+
+<header class="header--shop top">
+  <div class="lang-switch" role="group" aria-label="Jazyk">
+    <button type="button" class="lang-btn" data-lang="sk" aria-pressed="true">SK</button>
+    <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+  </div>
+
+  <h1><a href="shop.html">Melysium</a></h1>
+  <p class="slogan" data-i18n="slogan">Hudba je náš raj.</p>
+
+  <nav class="site-nav" aria-label="Hlavná navigácia">
+    <a href="onas.html" data-i18n="navAbout">O nás</a>
+    <a href="kontakt.html" data-i18n="navContact">Kontakt</a>
+    <a href="cart.html" data-i18n="navCart">Košík</a>
+  </nav>
+</header>
+
+<main>
+  <div class="filters">
+    <label class="visually-hidden" for="genreFilter">Žáner</label>
+    <select id="genreFilter" aria-label="Filter podľa žánru">
+      <option value="all" data-i18n="genreAll">Všetky žánre</option>
+      <option value="rock">Rock</option>
+      <option value="rap">Rap</option>
+      <option value="pop">Pop</option>
+      <option value="metal">Metal</option>
+    </select>
+
+    <label class="visually-hidden" for="typeFilter">Typ</label>
+    <select id="typeFilter" aria-label="Filter podľa typu">
+      <option value="all" data-i18n="typeAll">Všetky typy</option>
+      <option value="hoodie" data-i18n="typeHoodie">Mikiny</option>
+      <option value="tshirt" data-i18n="typeTshirt">Tričká</option>
+      <option value="longsleeve" data-i18n="typeLong">Longsleeve</option>
+      <option value="cap" data-i18n="typeCap">Šiltovky</option>
+      <option value="bag" data-i18n="typeBag">Tašky</option>
+    </select>
+  </div>
+
+  <section id="products" aria-label="Produkty"></section>
+</main>
+
+<footer>
+  <p data-i18n="footerText">
+    Táto spoločnosť je cvičná firma založená pri Obchodnej akadémii Nevädzová v Bratislave.
+    Firma nie je platiteľom DPH. Ceny uvedené na webovej stránke neobsahujú DPH.
+  </p>
+</footer>
+
+<div class="site-footer">
+  <nav class="footer-links" aria-label="Pätička">
+    <a href="onas.html" data-i18n="footerAbout">O nás</a>
+    <a href="kontakt.html" data-i18n="footerContact">Kontakt</a>
+  </nav>
+</div>
+
+<script src="js/products.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/shop.js"></script>
+</body>
+</html>
