@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Rap cap">
+  <rect width="400" height="400" fill="#1f0f2e"/>
+  <ellipse cx="200" cy="210" rx="120" ry="28" fill="#3d1860"/>
+  <path d="M90 210c0-55 50-95 110-95s110 40 110 95" fill="#5a2288" stroke="#d07bff" stroke-width="4"/>
+  <text x="200" y="330" text-anchor="middle" fill="#f0d8ff" font-family="Arial,sans-serif" font-size="22">RAP CAP</text>
+</svg>

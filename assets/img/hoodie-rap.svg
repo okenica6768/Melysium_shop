@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Rap hoodie">
+  <rect width="400" height="400" fill="#1f0f2e"/>
+  <path d="M120 140h160l30 50v150H90V190l30-50z" fill="#4a1f6e" stroke="#d07bff" stroke-width="4"/>
+  <circle cx="200" cy="120" r="36" fill="#4a1f6e" stroke="#d07bff" stroke-width="4"/>
+  <text x="200" y="330" text-anchor="middle" fill="#f0d8ff" font-family="Arial,sans-serif" font-size="22">RAP HOODIE</text>
+</svg>

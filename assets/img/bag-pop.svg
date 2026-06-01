@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Pop bag">
+  <rect width="400" height="400" fill="#1a1830"/>
+  <rect x="120" y="130" width="160" height="180" rx="16" fill="#ece8ff" stroke="#7b5cff" stroke-width="4"/>
+  <path d="M150 130c0-30 25-50 50-50s50 20 50 50" fill="none" stroke="#7b5cff" stroke-width="6"/>
+  <text x="200" y="330" text-anchor="middle" fill="#e6e0ff" font-family="Arial,sans-serif" font-size="22">POP BAG</text>
+</svg>

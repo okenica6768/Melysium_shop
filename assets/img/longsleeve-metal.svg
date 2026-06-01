@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Metal longsleeve">
+  <rect width="400" height="400" fill="#0d0d12"/>
+  <path d="M125 115h150l30 48v195H95V163l30-48z" fill="#1c1c24" stroke="#888" stroke-width="4"/>
+  <rect x="95" y="163" width="40" height="120" fill="#1c1c24" stroke="#888" stroke-width="4"/>
+  <rect x="265" y="163" width="40" height="120" fill="#1c1c24" stroke="#888" stroke-width="4"/>
+  <text x="200" y="330" text-anchor="middle" fill="#ccc" font-family="Arial,sans-serif" font-size="20">METAL LONGSLEEVE</text>
+</svg>

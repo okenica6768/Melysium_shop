@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Rock hoodie">
+  <rect width="400" height="400" fill="#1a1038"/>
+  <path d="M120 140h160l30 50v150H90V190l30-50z" fill="#2d1f5c" stroke="#9b8cff" stroke-width="4"/>
+  <circle cx="200" cy="120" r="36" fill="#2d1f5c" stroke="#9b8cff" stroke-width="4"/>
+  <text x="200" y="330" text-anchor="middle" fill="#e6e0ff" font-family="Arial,sans-serif" font-size="22">ROCK HOODIE</text>
+</svg>

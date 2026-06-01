@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Rock t-shirt">
+  <rect width="400" height="400" fill="#1a1038"/>
+  <path d="M130 120h140l35 45 25-25 35 35-25 25v170H95V200l35-35 25 25-35-45z" fill="#3a2858" stroke="#c4b5ff" stroke-width="4"/>
+  <text x="200" y="330" text-anchor="middle" fill="#e6e0ff" font-family="Arial,sans-serif" font-size="22">ROCK TEE</text>
+</svg>
